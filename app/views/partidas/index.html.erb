@@ -1,0 +1,43 @@
+<div class="page-header">
+    <h1>Partidas Registradas</h1>
+</div>
+
+<%= will_paginate @partidas, renderer: BootstrapPagination::Rails %>
+<div class="clearfix"></div>
+<br>
+
+<table class="table table-bordered table-striped table-condensed">
+  <tr>
+    <th>#Id</th>
+    <th>Nombre</th>    
+    <th>Serieclase</th>
+    <th>Profundidad</th>
+    <th>Unidad</th>
+    <th>Metrado</th>
+    <th>Observacion</th>    
+    <th>Acciones</th>
+  </tr>
+
+<% @partidas.each do |partida| %>
+  <tr>
+    <td><%= partida.id %></td>
+    <td><%= partida.lista.nombre[0,40] %></td>   
+    <td><%= partida.serieclase %></td>
+    <td><%= partida.profundidad %></td>
+    <td><%= partida.unidade.nombre %></td>
+    <td><%= partida.metrado %></td>
+    <td><%= partida.observacion[0,30] %></td>
+    <td>        
+        <%= link_to raw('<i class="icon-eye-open icon-white"></i>'), partida, :class => "btn btn-info btn-small" %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_parteobra_path(partida.parteobra_id), :class => "btn btn-small btn-success" %>        
+    </td>
+  </tr>
+<% end %>
+</table>
+<div class="form-actions">
+    <%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar') , parteobras_path, :class => "btn btn-primary" %>
+</div>
+
+
+
+

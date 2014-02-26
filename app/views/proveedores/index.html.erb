@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="span6">
+    <h2>Proveedores General</h2>
+  </div>  
+  <div class="span6">
+    <br>
+    <%= link_to raw('Nuevo <i class="icon-plus icon-white"></i>'), new_proveedore_path, :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+
+<div class="pull-right">
+  <%= will_paginate @proveedores, renderer: BootstrapPagination::Rails %>  
+</div>
+<table class ="table table-bordered table-striped table-condensed table-hover">
+  <tr>
+    <th>#</th>    
+    <th>Razon social</th>
+    <th>Telefono</th>
+    <th>Contacto</th>
+    <th>Ruc</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @proveedores.each do |proveedore| %>
+  <tr style="font-size: 12px;">
+    <td><%= proveedore.id %></td>    
+    <td><%= proveedore.ente.razon_social %> <%= proveedore.ente.nombre %> <%= proveedore.ente.apellido %></td>
+    <td><%= proveedore.telefono %></td>    
+    <td><%= proveedore.contacto %></td>
+    <td><%= proveedore.ruc %></td>        
+    <td>
+        <%= link_to raw('<i class="icon-eye-open icon-white"></i>'), proveedore, :class => "btn btn-small btn-info" %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_proveedore_path(proveedore), :class => "btn btn-small btn-success" %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'), proveedore, method: :delete, data: { confirm: 'Esta Seguro que desea Elimnar?' }, :class => "btn btn-small btn-danger" %>
+    </td>
+  </tr>
+<% end %>
+</table>

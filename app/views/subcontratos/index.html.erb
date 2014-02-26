@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="span6">
+        <h2>Subcontratos</h2>        
+    </div>
+    <div class="span6">
+        <br>
+        <%= link_to raw('Nuevo <i class="icon-plus icon-white"></i>'), new_subcontrato_path, :class => "btn btn-primary pull-right" %>
+    </div>
+</div>
+<br>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th style="text-align: center;">#id</th>
+    <th style="text-align: center;">SubContratista</th>
+    <th style="text-align: center;">Valorizacion</th>    
+    <th style="text-align: center;">Condiciones de pago</th>
+    <th style="text-align: center;">Igv</th>
+    <th style="text-align: center;">Fondo de garantia</th>
+    <th style="text-align: center;">Monto Contratado</th>
+    <th style="text-align: center;">Acciones</th>    
+  </tr>
+
+<% @subcontratos.each do |subcontrato| %>
+  <tr>
+    <td style="text-align: center;"><%= subcontrato.id %></td>
+    <td>
+        <%= subcontrato.proveedore.ente.razon_social %> 
+        <%= subcontrato.proveedore.ente.nombre %> 
+        <%= subcontrato.proveedore.ente.apellido %> 
+    </td>
+    <td style="text-align: center;"><%= subcontrato.valorizacion %></td>    
+    <td style="text-align: center;"><%= subcontrato.condiciones_de_pago %></td>
+    <td style="text-align: center;"><%= subcontrato.igv %>%</td>
+    <td style="text-align: center;"><%= subcontrato.fondo_garantia_porcentaje %>%</td>
+    <td style="text-align: center;"><%= subcontrato.monto_contratado %></td>
+    <td>
+        <%= link_to raw('<i class="icon-eye-open icon-white"></i>'), subcontrato, :class => "btn btn-small btn-info" %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_subcontrato_path(subcontrato), :class => "btn btn-small btn-success" %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'), subcontrato, method: :delete, data: { confirm: 'Esta Seguro que desea Eliminar?' }, :class => "btn btn-small btn-danger" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+
+

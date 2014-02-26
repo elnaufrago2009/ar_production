@@ -1,0 +1,42 @@
+<div class="page-header">
+    <h1>Lista de Insumos</h1>    
+</div>
+
+
+<table class="table table-bordered table-striped table-condensed">
+  <tr>
+    <th>#id</th>
+    <th># Subcontrato</th>
+    <th>Unidad</th>
+    <th>Cantidad</th>
+    <th>Pu sin igv</th>
+    <th>Parcial</th>
+    <th>Descripcion</th>
+    <th>Catalogodeinsumo</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @insumos.each do |insumo| %>
+  <tr style="font-size:12px;">
+    <td><%= insumo.id %></td>
+    <td><%= insumo.subcontrato_id %></td>
+    <td><%= insumo.unidade.nombre %></td>
+    <td><%= insumo.cantidad %></td>
+    <td><%= insumo.pu_sin_igv %></td>
+    <td><%= insumo.parcial %></td>
+    <td><%= insumo.descripcion %></td>
+    <td><%= insumo.lista.nombre %></td>    
+    <td>
+        <%= link_to raw('<i class="icon-eye-open icon-white"></i>'), insumo, :class => "btn btn-small btn-info" %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_subcontrato_path(insumo.subcontrato_id), :class => "btn btn-small btn-success" %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'), insumo, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small btn-danger" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<div class="form-actions">
+    <%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), subcontratos_path, :class => "btn btn-primary" %>    
+</div>
+
+

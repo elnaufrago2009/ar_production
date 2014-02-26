@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="span7">
+        <h2>Subcontrato de Equipos</h2>
+    </div>
+    <div class="span5">
+        <br />
+        <%= link_to raw('Nuevo <i class="icon-plus icon-white"></i>'), new_subcontratodeequipo_path, :class => 'btn btn-primary pull-right' %>  
+    </div>
+</div>
+
+<br>
+<table class="table table-bordered table-striped table-hover table-condensed">
+  <tr>
+    <th>#id</th>
+    <th>Proveedor</th>
+    <th>Valorizacion</th>
+    <th>Condiciones de pago</th>   
+    <th>Igv</th>
+    <th>Fondo de garantia</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @subcontratodeequipos.each do |subcontratodeequipo| %>
+  <tr style="font-size: 12px;">
+    <td><%= subcontratodeequipo.id %></td>
+    <td>
+        <%= subcontratodeequipo.proveedore.ente.nombre %>
+        <%= subcontratodeequipo.proveedore.ente.apellido %>
+        <%= subcontratodeequipo.proveedore.ente.razon_social %>
+    </td>
+    <td><%= subcontratodeequipo.valorizacion %></td>
+    <td><%= subcontratodeequipo.condiciones_de_pago %></td>    
+    <td>
+        <%= subcontratodeequipo.igv.blank? ? (number_to_currency 0, unit: 'S/ '): (number_to_currency subcontratodeequipo.igv, unit: '') %> %                
+    </td>
+    <td>
+        <%= subcontratodeequipo.fondo_de_garantia.blank? ? (number_to_currency 0, unit: ''): (number_to_currency subcontratodeequipo.fondo_de_garantia, unit: '') %> %        
+    </td>
+    <td>
+        <%= link_to raw('<i class="icon-th-list icon-white"></i>'), "/subcontratodeequipos/ver_equipos/#{subcontratodeequipo.id}", :class => 'btn btn-warning btn-small', id: "subcontratodeequipos_ver_#{subcontratodeequipo.id}", title:"Ver Equipos" %>
+        <%= link_to raw('<i class="icon-eye-open icon-white"></i>'), subcontratodeequipo, :class => 'btn btn-info btn-small', id: "subcontrato_ver_#{subcontratodeequipo.id}", title: 'Detalle del Subcontrato' %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_subcontratodeequipo_path(subcontratodeequipo), :class => 'btn btn-small btn-success', id: "subcontratodeequipos_editar_#{subcontratodeequipo.id}", title: "Editar Subcontrato" %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'), subcontratodeequipo, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger', id: "subcontratodeequipos_eliminar_#{subcontratodeequipo.id}", title:'eliminar subcontrato' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<script type="text/javascript">
+    <% @subcontratodeequipos.each do |subcontratodeequipo| %>
+        $('#subcontratodeequipos_ver_<%= subcontratodeequipo.id %>').tooltip()
+        $('#subcontrato_ver_<%= subcontratodeequipo.id %>').tooltip()
+        $('#subcontratodeequipos_editar_<%= subcontratodeequipo.id %>').tooltip()
+        $('#subcontratodeequipos_eliminar_<%= subcontratodeequipo.id %>').tooltip()
+    <% end %>
+</script>
+

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Ver Grupo</h1>
+</div>
+  
+<div class="row">
+<table class="table table-striped table-bordered table-condensed table-hover span6">
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+  </tr>
+  <tr>
+    <td>#id</td>
+    <td><%= @gruposdetrabajo.id %></td>
+  </tr>
+  <tr>
+    <td>WBS Nivel 1</td>
+    <td><%= @gruposdetrabajo.sectore.descripcion %></td>
+  </tr>
+  <tr>
+    <td>WBS Nivel 2</td>
+    <td><%= @gruposdetrabajo.subsectore.descripcion %></td>
+  </tr>
+  <tr>
+    <td>Jefe de Frente</td>
+    <td>
+      <%= @gruposdetrabajo.jefedefrente.ente.nombre %>
+      <%= @gruposdetrabajo.jefedefrente.ente.apellido %>
+      <%= @gruposdetrabajo.jefedefrente.ente.razon_social %>
+    </td>
+  </tr>
+  <tr>
+    <td>Subcontratista</td>
+    <td>
+      <%= @gruposdetrabajo.subcontrato.proveedore.ente.nombre %>
+      <%= @gruposdetrabajo.subcontrato.proveedore.ente.apellido %>
+      <%= @gruposdetrabajo.subcontrato.proveedore.ente.razon_social %>
+    </td>
+  </tr>
+  <tr>
+    <td>Maestro de Obra</td>
+    <td>
+      <%= @gruposdetrabajo.maestrodeobra.ente.nombre %>
+      <%= @gruposdetrabajo.maestrodeobra.ente.apellido %>
+      <%= @gruposdetrabajo.maestrodeobra.ente.razon_social %>
+    </td>
+  </tr>
+  <tr>
+    <td>Activo</td>
+    <td><%= @gruposdetrabajo.activo %></td>
+  </tr>
+</table>
+</div>
+
+<div class="form-actions">
+  <%= link_to raw('<i class="icon-edit icon-white"></i> Editar'), edit_gruposdetrabajo_path(@gruposdetrabajo), :class => 'btn btn-success' %>
+  <%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), gruposdetrabajos_path, :class => 'btn btn-primary' %>  
+</div>
+

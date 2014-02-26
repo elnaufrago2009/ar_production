@@ -1,0 +1,161 @@
+<%= form_for(@equiposdesubcontrato, :html => {:class => 'form-horizontal'}) do |f| %>
+
+  <% if @equiposdesubcontrato.errors.any? %>
+    <div id="error_explanation" class="well">
+      <h4><%= @equiposdesubcontrato.errors.count %>  errores cometidos</h4>
+
+      <ul>
+      <% @equiposdesubcontrato.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <%=h debug @equiposdesubcontrato %>
+  <% end %>
+
+
+  <div class="row">
+    <div class="span5">
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :codigo %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :codigo, placeholder: 'Min-01', class: 'input-medium' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :insumodeequipo_id %>
+        </div>
+        <div class='controls'>
+          <%= f.select :insumodeequipo_id, Insumodeequipo.all.collect{|x| ["#{x.nombre}", x.id]}, include_blank: 'seleccione', class: 'input-large' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :descripcion %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :descripcion, placeholder: 'Descripcion', class: 'input-large' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :marca %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :marca, placeholder: 'CAT', class: 'input-small' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :serie %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :serie, placeholder: 'CAT0416ELMFG02956', class: 'input-medium' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :modelo %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :modelo, placeholder: '416E', class: 'input-small' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :fecha_de_ingreso %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :fecha, placeholder: '2013-11-14', class: 'input-medium' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :año %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :anho, placeholder: '2013', class: 'input-mini', name: 'equiposdesubcontrato[anho]' %>          
+        </div>
+      </div>
+      <div class='control-group'>
+      <div class='control-label'>
+          <%= f.label :unidad %>
+        </div>
+        <div class='controls'>
+          <%= f.select :unidade_id, Unidade.all.collect { |x| [x.nombre, x.id] },include_blank: 'Seleccionar', class: 'input-medium' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :precio_sin_igv %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :precion_sin_igv, placeholder: '103', class: 'input-mini' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :incluye %>
+        </div>
+        <div class='controls'>
+          <%= f.select :equipoincluye_id, Equipoincluye.all.collect {|x| [x.nombre, x.id]}, include_blank: 'Seleccionar', class: 'input-medium' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :horas_minimas %>
+        </div>
+        <div class='controls'>
+          <%= f.select :horas_minimas, options_for_select([['Diario'],['Semanales'],['Quincenales'],['Mensuales']]), include_blank: 'Seleccionar', class: 'input-medium' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :cantidad_horas_maquina %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :cantidad_h_m, :class => 'input-mini', :placeholder => 'Cant HM' %>          
+        </div>
+      </div>
+      <div class='control-group'>
+        <div class='control-label'>
+          <%= f.label :cantidad_contratada %>
+        </div>
+        <div class='controls'>
+          <%= f.text_field :cantidad_contratada, class: 'input-mini', placeholder: '1200.00' %>
+        </div>
+      </div>
+    </div>    
+  </div>
+  <% if params[:action] == 'new' %>
+    <%= f.hidden_field :subcontratodeequipo_id, :value => params[:id] %>  
+  <% elsif params[:action] == 'create'   %>
+    <%= f.hidden_field :subcontratodeequipo_id, :value => @equiposdesubcontrato.subcontratodeequipo_id %>  
+  <% elsif params[:action] == 'edit' %>
+    <%= f.hidden_field :subcontratodeequipo_id, :value => @equiposdesubcontrato.subcontratodeequipo_id %>  
+  <% elsif params[:action] == 'update' %>
+    <%= f.hidden_field :subcontratodeequipo_id, :value => @equiposdesubcontrato.subcontratodeequipo_id %>
+  <% end %>
+    
+  <div class='control-group'>
+    <div class='controls'>
+        <%= button_tag(type: "submit", class: "btn btn-success") do %>
+            <i class="icon-file icon-white"></i> Guardar Equipo 
+        <% end %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('#equiposdesubcontrato_fecha').datepicker({
+      format: 'yyyy-mm-dd',
+      language: 'es',
+      autoclose: true      
+  });
+</script>

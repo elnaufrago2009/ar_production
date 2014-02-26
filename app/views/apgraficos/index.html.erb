@@ -1,0 +1,23 @@
+<h1>Listing apgraficos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @apgraficos.each do |apgrafico| %>
+  <tr>
+    <td><%= apgrafico.nombre %></td>
+    <td><%= link_to 'Show', apgrafico %></td>
+    <td><%= link_to 'Edit', edit_apgrafico_path(apgrafico) %></td>
+    <td><%= link_to 'Destroy', apgrafico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Apgrafico', new_apgrafico_path %>

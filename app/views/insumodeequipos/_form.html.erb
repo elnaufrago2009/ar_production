@@ -1,0 +1,60 @@
+<%= form_for(@insumodeequipo, :html => {:class => 'form-horizontal'}) do |f| %>
+
+  <% if @insumodeequipo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@insumodeequipo.errors.count, "error") %> prohibited this insumodeequipo from being saved:</h2>
+
+      <ul>
+      <% @insumodeequipo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='control-group'>
+    <div class='control-label'>
+      <%= f.label :codigo_tobi %>
+    </div>
+    <div class='controls'>
+      <%= f.text_field :codigo_tobi, :class => 'input-small', :placeholder => 'MC01' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='control-label'>
+      <%= f.label :nombre %>
+    </div>
+    <div class='controls'>
+      <%= f.text_field :nombre, :class => 'input-medium', :placeholder => 'Minicargador' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='control-label'>
+      <%= f.label :unidade_id %>
+    </div>
+    <div class='controls'>
+      <%= f.select :unidade_id, Unidade.all.collect {|x| [x.nombre, x.id]}, {:include_blank => 'Unidad'}, :class => 'input-small' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='control-label'>
+      <%= f.label :cantidad %>
+    </div>
+    <div class='controls'>
+      <%= f.text_field :cantidad, :class => 'input-small', :placeholder => '14000.00' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='control-label'>
+      <%= f.label :precio %>
+    </div>
+    <div class='controls'>
+      <%= f.text_field :precio, :class => 'input-small', :placeholder => '23000.00' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='controls'>
+      <%= f.submit :class => 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>

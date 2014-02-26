@@ -1,0 +1,58 @@
+<h1>Sistema Arsac - Produccion <%= image_tag('glyphicons_040_stats.png') %></h1>
+<p>ARSAC Contratistas Generales, tiene clara
+orientacion hacia la satisfaccion de sus clientes,<br> 
+para lo cual da plena atención a la identificación 
+de sus requisitos, teniendo una clara vocación<br> 
+hacia la mejora continua. Asimismo, ARSAC
+establece su compromiso de cumplimiento a 
+sus actividades</p>
+<hr>		
+<div class="row-fluid">
+<ul class="thumbnails">
+  <li class="span4">
+    <div class="thumbnail">
+      <%= image_tag('parte-obra-300-200.jpg') %>
+      <div class="caption">
+        <h3><%= link_to "Parte Diario de Produccion", parteobras_path %></h3>
+        <p>
+          El control de la producción tiene que establecer medios para una continua evaluación de ciertos factores: la demanda del cliente, la situación de capital, la capacidad productiva, etc. Esta evaluación deberá tomar en cuenta no solo el estado actual de estos factores sino que deberá también proyectarlo hacia el futuro.
+        </p>
+        <p>
+          <%= link_to raw("<i class='icon-home icon-white'></i> Ver"), parteobras_path, class: 'btn btn-primary' %>        	
+          <%= link_to raw("<i class='icon-plus'></i> Nuevo"), new_parteobra_path, class: 'btn' %>
+        </p>
+      </div>
+    </div>
+  </li>
+  <li class="span4">
+    <div class="thumbnail">
+      <%= image_tag('parte-personal.jpg') %>
+      <div class="caption">
+        <h3><%= link_to "Parte Diario de Personal", partediariodepersonals_path %></h3>
+        <p>
+          Es necesario que haya un adecuado registro y control del personal. se trata de asegurar que las diversas unidades de la organización marchen de acuerdo con lo previsto. Los objetivos centrales de esta técnica es controlar las entradas y salida del personal, cumplimiento del horario de trabajo, controlar horas extras, permisos, vacaciones tardanzas, licencias, etc
+        </p>
+        <p>
+          <%= link_to raw("<i class='icon-home icon-white'></i> Ver"), partediariodepersonals_path, class: 'btn btn-primary' %>
+          <%= link_to raw("<i class='icon-plus'></i> Nuevo"), new_partediariodepersonal_path, class: 'btn' %>
+        </p>
+      </div>
+    </div>
+  </li>
+  <li class="span4">
+    <div class="thumbnail">
+      <%= image_tag('parte-equipos.jpg') %>
+      <div class="caption">
+        <h3><%= link_to "Parte Diario de Equipos", partedeequipos_path %></h3>
+        <p>
+          El control es importante también porque es el enlace final en la cadena funcional de las actividades de administración y representa sobre todo y es quizá lo mas importante que el valor específico de la función de control radica en su relación con la planificación y delegación de actividades. Aquí radica la importancia del control.
+        </p>
+        <p>
+          <%= link_to raw("<i class='icon-home icon-white'></i> Ver"), partedeequipos_path, class: 'btn btn-primary' %>
+          <%= link_to raw("<i class='icon-plus'></i> Nuevo"), new_partedeequipo_path, class: 'btn' %>
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
+</div>

@@ -1,0 +1,49 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>#<%= @materiale.id %> <%= @materiale.descripcion %></h1>
+</div>
+
+<table class="table table-bordered table-striped table-condensed">
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+  </tr>
+  <tr>
+    <td>#id</td>
+    <td><%= @materiale.id %></td>
+  </tr>
+  <tr>
+    <td>Parte Obra #id</td>
+    <td><%= @materiale.parteobra.numeroparte %></td>
+  </tr>
+  <tr>
+    <td>Descripcion</td>
+    <td><%= @materiale.descripcion %></td>
+  </tr>
+  <tr>
+    <td>Unidad</td>
+    <td><%= @materiale.unidad %></td>
+  </tr>
+  <tr>
+    <td>Cantidad</td>
+    <td><%= @materiale.cantidad %></td>
+  </tr>
+  <tr>
+    <td>Partida de Control</td>
+    <td><%= @materiale.partidasdecontrol.subfase.descripcion %></td>
+  </tr>
+  <tr>
+    <td>Observacion</td>
+    <td><%= @materiale.observacion %></td>
+  </tr>
+</table>
+
+<div class="page-header">
+  <%= link_to raw('<i class="icon-edit icon-white"></i> Edit'), edit_parteobra_path(@materiale.parteobra_id), :class => "btn btn-primary" %>
+  <%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), materiales_path, :class => "btn btn-primary" %>  
+</div>
+
+
+

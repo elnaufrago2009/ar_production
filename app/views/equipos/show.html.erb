@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1># <%= @equipo.id %> <%= @equipo.descripcion %> <small>#parte <%= @equipo.parteobra.numeroparte %></small></h1>
+</div>
+
+<table class="table table-bordered table-striped table-condensed">
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+  </tr>
+  <tr>
+    <td>#id</td>
+    <td><%= @equipo.id %></td>
+  </tr>
+  <tr>
+    <td>Descripcion</td>
+    <td><%= @equipo.descripcion %></td>
+  </tr>
+  <tr>
+    <td>Unidad</td>
+    <td><%= @equipo.unidad %></td>
+  </tr>
+  <tr>
+    <td>Cantidad</td>
+    <td><%= @equipo.cantidad %></td>
+  </tr>
+  <tr>
+    <td>Numero de Parte</td>
+    <td><%= @equipo.numeroparte %></td>
+  </tr>
+  <tr>
+    <td>Partida de Control</td>
+    <td><%= @equipo.partidasdecontrol.subfase.descripcion %></td>
+  </tr>
+  <tr>
+    <td>Observacion</td>
+    <td><%= @equipo.observacion %></td>
+  </tr>
+</table>
+
+<div class="form-actions">
+  <%= link_to raw('<i class="icon-edit icon-white"></i> Editar'), edit_parteobra_path(@equipo.parteobra_id), :class => "btn btn-primary" %>
+  <%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), equipos_path, :class => "btn btn-primary" %>
+</div>

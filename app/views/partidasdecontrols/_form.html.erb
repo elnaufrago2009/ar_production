@@ -1,0 +1,56 @@
+<%= form_for(@partidasdecontrol, :html => {:class => "form-horizontal"}) do |f| %>
+  <% if @partidasdecontrol.errors.any? %>
+    <div id="error_explanation" class="well">
+      <h2><%= pluralize(@partidasdecontrol.errors.count, "errores") %> cometidos</h2>
+
+      <ul>
+      <% @partidasdecontrol.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="control-group">
+  <div class="control-label">
+    <%= f.label :WBS_Nivel_1 %>
+  </div>
+  <div class="controls">    
+    <%= f.select :sectore_id, Sectore.all.collect {|x| [x.descripcion, x.id]}, {:include_blank => 'Seleccionar Sector'}, {:class => 'span4'} %>
+  </div>
+</div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :WBS_Nivel_1 %>  
+    </div>
+    <div class="controls">      
+      <%= f.select :subsectore_id, Subsectore.all.collect {|x| [x.descripcion, x.id]}, {:include_blank => 'Seleccion Subsector'}, {:class => 'input-xxlarge'} %>
+    </div>    
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :fase_id %>  
+    </div>
+    <div class="controls">      
+      <%= f.select :fase_id, Fase.all.collect {|x| ["#{x.codigo}  #{x.descripcion}", x.id]}, {:include_blank => 'Seleccion Fase'}, {:class => 'span4'} %>
+    </div>    
+  </div>  
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :subfase_id %>  
+    </div>
+    <div class="controls">
+      <%= f.select :subfase_id, Subfase.all.collect {|x| ["#{x.fase.codigo}#{x.codigo} #{x.descripcion}", x.id]}, {:include_blank => 'Seleccion Subface'}, {:class => 'input-xxlarge'} %>
+    </div>    
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit :class => "btn btn-success" %>  
+    </div>    
+  </div>
+<% end %>

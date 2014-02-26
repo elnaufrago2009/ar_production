@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="span4">
+    <h2>WBS Nivel 2</h2>
+  </div>
+  <div class="span4">
+    <br>
+    <%= link_to raw('Nuevo <i class="icon-plus icon-white"></i>'), new_subsectore_path, :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+<br>
+
+<div class="row">
+<table class="table table-striped table-bordered table-condensed table-hover span8">
+  <tr>
+    <th>#id</th>
+    <th>Codigo</th>
+    <th>Descripcion</th>
+    <th>Sectore</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @subsectores.each do |subsectore| %>
+  <tr>
+    <td><%= subsectore.id %></td>
+    <td><%= subsectore.codigo %></td>
+    <td><%= subsectore.descripcion %></td>
+    <td><%= subsectore.sectore.descripcion %></td>
+    <td>
+      <%= link_to raw('<i class="icon-eye-open icon-white"></i>'), subsectore, :class => "btn btn-small btn-info" %>
+      <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_subsectore_path(subsectore), :class => "btn btn-small btn-success" %>
+      <%= link_to raw('<i class="icon-trash icon-white"></i>'), subsectore, method: :delete, data: { confirm: 'Esta Seguro que desea Eliminar?' }, :class => "btn btn-small btn-danger" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+</div>
+<div class="clearfix"></div>

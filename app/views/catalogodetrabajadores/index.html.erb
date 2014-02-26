@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="span6">
+    <h2>Catalogo De Trabajadores</h2>
+  </div>  
+  <div class="span6">
+    <br>
+    <%= link_to raw('Nuevo <i class="icon-plus icon-white"></i>'), new_catalogodetrabajadore_path, :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+<br>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>#id</th>
+    <th>Nombre y Apellidos</th>
+    <th>Categoria</th>
+    <th>dni</th>
+    <th>movil</th>
+    <th>correo</th>
+    <th>Acciones</th>    
+  </tr>
+
+<% @catalogodetrabajadores.each do |catalogodetrabajadore| %>
+  <tr style="font-size:12px;">
+    <td><%= catalogodetrabajadore.id %></td>
+    <td>
+      <%= catalogodetrabajadore.ente.nombre %> <%= catalogodetrabajadore.ente.apellido %> <%= catalogodetrabajadore.ente.razon_social %>
+    </td>
+    <td><%= catalogodetrabajadore.catalogocategoriatrabajadore.nombre %></td>
+    <td><%= catalogodetrabajadore.ente.dni %></td>
+    <td><%= catalogodetrabajadore.movil %></td>
+    <td><%= catalogodetrabajadore.mail %></td>    
+    <td>
+      <%= link_to raw('<i class="icon-eye-open icon-white"></i>') , catalogodetrabajadore, :class => "btn btn-small btn-info" %>
+      <%= link_to raw('<i class="icon-edit icon-white"></i>') , edit_catalogodetrabajadore_path(catalogodetrabajadore), :class => "btn btn-small btn-success" %>
+      <%= link_to raw('<i class="icon-trash icon-white"></i>'), catalogodetrabajadore, method: :delete, data: { confirm: 'Esta Seguro que desea Eliminar?' }, :class => "btn btn-small btn-danger" %>
+    </td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+	<h2>Detalle Frente</h2>
+</div>
+
+<div class="row">
+<table class="table table-striped table-condensed table-bordered span5">
+	<tr>
+		<th>Nombre</th>
+		<th>Descripcion</th>
+	</tr>	
+	<tr>
+		<td>#id</td>
+		<td><%= @frente.id %></td>
+	</tr>
+	<tr>
+		<td>Nombre</td>
+		<td><%= @frente.nombre %></td>
+	</tr>
+	<tr>
+		<td>Descripcion</td>
+		<td><%= @frente.descripcion %></td>
+	</tr>
+</table>
+</div>
+<div class="clearfix"></div>
+
+<div class="form-actions">
+	<%= link_to raw('<i class="icon-edit icon-white"></i> Editar'), edit_frente_path(@frente), :class => "btn btn-success" %>
+	<%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), frentes_path, :class => "btn btn-primary" %>	
+</div>
+

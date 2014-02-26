@@ -1,0 +1,32 @@
+<p class="success"><%= notice %></p>
+<div class="page-header">
+	<h2>Unidad Detalle</h2>
+</div>
+
+<div class="row">
+	<table class="table table-striped table-bordered table-condensed table-hover span5">
+		<tr>		
+			<th>Nombre</th>
+			<th>Descripcion</th>
+		</tr>
+		<tr>
+			<td>#id</td>
+			<td><%= @unidade.id %></td>
+		</tr>
+		<tr>
+			<td>Nombre</td>
+			<td><%= @unidade.nombre %></td>
+		</tr>
+		<tr>
+			<td>Descripcion</td>
+			<td><%= @unidade.descripcion %></td>
+		</tr>
+	</table>	
+</div>
+
+
+<div class="form-actions">
+	<%= link_to raw('<i class="icon-edit icon-white"></i> Editar'), edit_unidade_path(@unidade), :class => 'btn btn-success' %>
+	<%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), unidades_path, :class => 'btn btn-primary' %>
+</div>
+

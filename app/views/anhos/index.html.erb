@@ -1,0 +1,27 @@
+<h1>Calendario</h1>
+
+<div class="row">
+<table class="table table-striped table-condensed table-bordered span6">
+  <tr>
+    <th>#id</th>
+    <th>Nombre</th>
+    <th>Acciones</th>    
+  </tr>
+
+<% @anhos.each do |anho| %>
+  <tr>
+    <td><%= anho.id %></td>
+    <td><%= anho.nombre %></td>
+    <td>
+      <%= link_to raw("<i class='icon-eye-open'></i>"), anho, class: 'btn btn-small' %>
+      <%= link_to raw("<i class='icon-edit'></i>"), edit_anho_path(anho), class: 'btn btn-small' %>
+      <%= link_to raw("<i class='icon-trash'></i>"), anho, method: :delete, data: { confirm: 'Esta Seguro que desea Eliminar?' }, class: 'btn btn-small' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+
+<%= link_to raw("<i class='icon-calendar icon-white'></i> Nuevo año"), new_anho_path, class: 'btn btn-primary' %>

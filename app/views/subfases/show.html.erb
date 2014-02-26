@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+	<h2>Detalle Subfase</h2>
+</div>
+
+<div class="row">
+<table class="table table-bordered table-striped table-condensed table-hover span6">	
+	<tr>
+		<th>Nombre</th>
+		<th>Descripcion</th>
+	</tr>
+	<tr>
+		<td>#id</td>
+		<td><%= @subfase.id %></td>
+	</tr>
+	<tr>
+		<td>Codigo</td>
+		<td><%= @subfase.codigo %></td>
+	</tr>
+	<tr>
+		<td>Descripcion</td>
+		<td><%= @subfase.descripcion %></td>
+	</tr>
+	<tr>
+		<td>Codigo Fase</td>
+		<td><%= @subfase.fase_id %></td>
+	</tr>
+	<tr>
+		<td>Nombre Fase</td>
+		<td><%= @subfase.fase.descripcion %></td>
+	</tr>
+</table>
+</div>
+
+<div class="form-actions">
+<%= link_to raw('<i class="icon-edit icon-white"></i> Editar'), edit_subfase_path(@subfase), :class => "btn btn-success" %>
+<%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), subfases_path, :class => "btn btn-primary" %>	
+</div>
+

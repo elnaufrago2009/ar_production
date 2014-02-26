@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  descripcion: MyString
+  unidad: MyString
+  cantidad: MyString
+  partidacontrol: MyString
+  observacion: MyString
+  parteobra_id: 1
+
+two:
+  descripcion: MyString
+  unidad: MyString
+  cantidad: MyString
+  partidacontrol: MyString
+  observacion: MyString
+  parteobra_id: 1

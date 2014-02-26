@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="span7">
+        <h2>Grupos de Trabajo</h2>   
+    </div>
+    <div class="span5">
+        <br>
+        <%= link_to raw('Nuevo <i class="icon-plus icon-white"></i>'), new_gruposdetrabajo_path, :class => "btn btn-primary pull-right" %>
+    </div>
+</div>
+<br>
+
+<table class="table table-bordered table-striped table-condensed table-hover">
+  <tr>
+    <th>#id</th>
+    <th>WBS Nivel 1</th>
+    <th>WBS Nivel 2</th>    
+    <th>Jefedefrente</th>
+    <th>Subcontratista</th>
+    <th>Maestrodeobra</th>
+    <th>Activo</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @gruposdetrabajos.each do |gruposdetrabajo| %>
+  <tr style="font-size: 11px;">
+    <td><%= gruposdetrabajo.id %></td>
+    <td><%= gruposdetrabajo.sectore.descripcion[0,25] %></td>
+    <td><%= gruposdetrabajo.subsectore.descripcion[0,25] %></td>    
+    <td>
+        <%= gruposdetrabajo.jefedefrente.ente.nombre[0,15] %>
+        <%= gruposdetrabajo.jefedefrente.ente.apellido[0,15] %>
+        <%= gruposdetrabajo.jefedefrente.ente.razon_social[0,25] %>
+    </td>
+    <td>
+        <%= gruposdetrabajo.subcontrato.proveedore.ente.nombre[0,15] %>
+        <%= gruposdetrabajo.subcontrato.proveedore.ente.apellido[0,15] %>
+        <%= gruposdetrabajo.subcontrato.proveedore.ente.razon_social[0,25] %>
+    </td>
+    <td>
+        <%= gruposdetrabajo.maestrodeobra.ente.nombre[0,15] %>
+        <%= gruposdetrabajo.maestrodeobra.ente.apellido[0,15] %>
+        <%= gruposdetrabajo.maestrodeobra.ente.razon_social[0,15] %>
+    </td>
+    <td>
+        <% if gruposdetrabajo.activo == 'Si' %>
+            <span class="label label-success"><%= gruposdetrabajo.activo %></span>
+        <% else %>
+            <span class="label label-important"><%= gruposdetrabajo.activo %></span>
+        <% end %>        
+    </td>
+    <td>
+        <%= link_to raw('<i class="icon-eye-open icon-white"></i>'), gruposdetrabajo, :class => "btn btn-small btn-info" %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_gruposdetrabajo_path(gruposdetrabajo), :class => 'btn btn-small btn-success' %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'), gruposdetrabajo, method: :delete, data: { confirm: 'Esta Seguro que desea Borrar?' }, :class => 'btn btn-small btn-danger' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+
+
+

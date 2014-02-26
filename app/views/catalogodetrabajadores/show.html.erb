@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+	<h1>Trabajador<small>: <%= @catalogodetrabajadore.ente.nombre %>, <%= @catalogodetrabajadore.ente.apellido %></small></h1>
+</div>
+
+<div class="row">
+<table class="table table-bordered table-striped table-condensed table-hover span6">
+	<tr>
+		<th>Nombre</th>
+		<th>Descripcion</th>
+	</tr>
+	<tr>
+		<td>#id</td>
+		<td><%= @catalogodetrabajadore.id %></td>
+	</tr>
+	<tr>
+		<td>Apellidos y Nombres</td>
+		<td><%= @catalogodetrabajadore.ente.nombre %>, <%= @catalogodetrabajadore.ente.apellido %></td>
+	</tr>
+	<tr>
+		<td>dni o razon social</td>
+		<td><%= @catalogodetrabajadore.ente.dni %></td>
+	</tr>
+	<tr>
+		<td>Telefono</td>
+		<td><%= @catalogodetrabajadore.telefono %></td>
+	</tr>
+	<tr>
+		<td>Movil</td>
+		<td><%= @catalogodetrabajadore.movil %></td>
+	</tr>
+	<tr>
+		<td>Direccion</td>
+		<td><%= @catalogodetrabajadore.direccion %></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><%= @catalogodetrabajadore.mail %></td>
+	</tr>
+	<tr>
+		<td>Banco</td>
+		<td><%= @catalogodetrabajadore.banco %></td>
+	</tr>
+	<tr>
+		<td>Numero de Cuenta</td>
+		<td><%= @catalogodetrabajadore.numero_cuenta %></td>
+	</tr>
+	<tr>
+		<td>Banco</td>
+		<td><%= @catalogodetrabajadore.banco %></td>
+	</tr>
+	<tr>
+		<td>Fecha de nacimiento</td>
+		<td><%= @catalogodetrabajadore.fecha_nacimiento %></td>
+	</tr>
+</table>
+</div>
+<div class="form-actions">
+	<%= link_to raw('<i class="icon-edit icon-white"></i> Editar') , edit_catalogodetrabajadore_path(@catalogodetrabajadore), :class => "btn btn-success" %>
+	<%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), catalogodetrabajadores_path, :class => "btn btn-primary" %>	
+</div>
+
+

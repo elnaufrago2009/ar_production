@@ -1,0 +1,206 @@
+<%= form_for(@proveedore, :html => {:class => "form-horizontal"}) do |f| %>
+
+  <% if @proveedore.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+      <h2><%= pluralize(@proveedore.errors.count, "errores") %> cometidos al guardar el proveedor:</h2>
+      <ul>
+      <% @proveedore.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row ">
+    <div class="span5">
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :ente_id %>
+          </div>
+          <div class="controls">
+            <%= f.select :ente_id, Ente.all.collect {|x| ["#{x.nombre} #{x.apellido} #{x.razon_social}", x.id]}, :include_blank => 'Seleccione' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :direccion %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :direccion, :class => "span3", :placeholder => "Ejm. Jr. Las Garzas 494 - San Isidro" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :telefono %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :telefono, :class => "span2", :placeholder => "Ejm. 6802768" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :movil_1 %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :movil_1, :class => "span2", :placeholder => "Ejm. 986802768" %>
+        </div>
+      </div>
+      
+           
+    </div><!-- end span5 -->
+    <div class="span6">  
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :cuenta_de_detraccion %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :cuenta_de_detraccion, :class => "span2", :placeholder => "Ejm. 27-421-0244-5544" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :contacto %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :contacto, :class => "input-large", :placeholder => "Ejm. Sr. Felipe Melendez" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :movil_2 %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :movil_2, :class => "span2", :placeholder => "Ejm. 986802768" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="alert alert-block">
+    
+  
+      <div class="control-group">
+        <div class="control-label">
+              <%= f.label :cuenta_corriente_1 %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :cuenta_corriente_1, :class => "span2", :placeholder => "02-54-2554-541" %> 
+            Cci 1  
+            <%= f.text_field :cci_1, :class => "input-medium", :placeholder => "52-144-54215" %> 
+            Banco 1  
+            <%= f.text_field :banco_1, :class => "input-large", :placeholder => "INTERBANK" %>
+        </div>
+      </div>      
+
+
+      <div class="control-group">
+        <div class="control-label">
+            <%= f.label :cuenta_corriente_2 %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :cuenta_corriente_2, :class => "span2", :placeholder => "02-54-2554-541" %> 
+            Cci 2 
+            <%= f.text_field :cci_2, :class => "input-medium", :placeholder => "52-144-54215" %> 
+            Banco 2  
+            <%= f.text_field :banco_2, :class => "input-large", :placeholder => "CREDITO" %> 
+        </div>
+      </div>
+      
+
+
+      <div class="control-group">
+        <div class="control-label">
+            <%= f.label :cuenta_corriente_3 %>
+          </div>
+          <div class="controls">
+            <%= f.text_field :cuenta_corriente_3, :class => "span2", :placeholder => "02-54-2554-541" %>
+            Cci 3 
+            <%= f.text_field :cci_3, :class => "input-medium", :placeholder => "52-144-54215" %>
+            Banco 3 
+            <%= f.text_field :banco_3, :class => "input-large", :placeholder => "DE LA NACION" %>
+        </div>
+      </div>
+</div>    
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit :class => "btn btn-success" %>
+        </div>
+      </div>
+
+
+<% end %>
+
+
+<script type="text/javascript">
+    $('form').validate({
+        rules: {
+            'proveedore[ente_id]': {
+                required: true,
+            },
+            'proveedore[direccion]': {
+                required: false,
+                minlength: 4,
+                maxlength: 30,
+                letras_numeros_spacio_punto_gion: true,
+            },
+            'proveedore[telefono]': {
+                required: false,
+                numero_giones: true,
+                minlength: 4,
+                maxlength: 15,
+            },
+            'proveedore[movil_1]': {
+                required: false,
+                numero_giones: true,
+                minlength: 4,
+                maxlength: 15,
+            },
+            'proveedore[cuenta_de_detraccion]': {
+                required: false,
+                numero_giones: true,
+                minlength: 4,
+                maxlength: 30,            
+            },
+            'proveedore[contacto]': {
+                required: false,
+                minlength: 4,
+                maxlength: 40,
+                letras_numeros_spacio_punto_gion_arroba: true,
+            },
+            'proveedore[movil_2]': {
+                required: false,
+                numero_giones: true,
+                minlength: 4,
+                maxlength: 15,
+            }            
+        }, messages: {
+          'proveedore[ente_id]': {
+            required: "Este Campo es Requerido"            
+          },
+          'proveedore[direccion]': {
+              minlength: jQuery.format("Minimo {0} numeros.!"),
+              maxlength: jQuery.format("Maximo {0} numeros.!"),
+          },
+          'proveedore[telefono]': {
+                minlength: jQuery.format("Minimo {0} numeros.!"),
+                maxlength: jQuery.format("Maximo {0} numeros.!"),
+          }
+    },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');            
+        },success: function (element) {
+            $(element).closest('.control-group').addClass('success');               
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+            if(element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+</script>

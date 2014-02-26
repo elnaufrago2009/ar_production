@@ -1,0 +1,45 @@
+<%= form_for(@descompocicione) do |f| %>
+  <% if @descompocicione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@descompocicione.errors.count, "error") %> prohibited this descompocicione from being saved:</h2>
+
+      <ul>
+      <% @descompocicione.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :unidad %><br />
+    <%= f.text_field :unidad %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br />
+    <%= f.text_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :terreno %><br />
+    <%= f.text_field :terreno %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidadvales %><br />
+    <%= f.text_field :cantidadvales %>
+  </div>
+  <div class="field">
+    <%= f.label :observacion %><br />
+    <%= f.text_field :observacion %>
+  </div>
+  <div class="field">
+    <%= f.label :parteobra_id %><br />
+    <%= f.number_field :parteobra_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

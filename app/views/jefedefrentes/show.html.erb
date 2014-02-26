@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+<div class="page-header">
+	<h1>Jefe de Frente</h1>
+</div>
+
+<div class="row">
+
+<table class="table table-striped table-bordered table-condensed span6">
+	<tr>
+		<th>Nombre</th>
+		<th>Descripcion</th>
+	</tr>
+	<tr>
+		<td>#id</td>
+		<td><%= @jefedefrente.id %></td>
+	</tr>
+	<tr>
+		<td>Nombre</td>
+		<td>
+			<%= @jefedefrente.ente.nombre %> 
+			<%= @jefedefrente.ente.apellido %>
+			<%= @jefedefrente.ente.razon_social %>
+		</td>
+	</tr>
+	<tr>
+		<td>Telefono</td>
+		<td>
+			<%= @jefedefrente.telefono %>
+		</td>
+	</tr>
+	<tr>
+		<td>Movil 1</td>
+		<td>
+			<%= @jefedefrente.movil_1 %>
+		</td>
+	</tr>
+	<tr>
+		<td>Movil 2</td>
+		<td>
+			<%= @jefedefrente.movil_2 %>
+		</td>
+	</tr>
+	<tr>
+		<td>correo</td>
+		<td>
+			<%= @jefedefrente.mail %>
+		</td>
+	</tr>
+	<tr>
+		<td>Direccion 1</td>
+		<td>
+			<%= @jefedefrente.direccion_1 %>
+		</td>
+	</tr>
+	<tr>
+		<td>Direccion 2</td>
+		<td>
+			<%= @jefedefrente.direccion_2 %>
+		</td>
+	</tr>
+	<tr>
+		<td>Estado Civil</td>
+		<td>
+			<%= @jefedefrente.estado %>
+		</td>
+	</tr>
+	<tr>
+		<td>Descripcion</td>
+		<td>
+			<%= @jefedefrente.descripcion %>
+		</td>
+	</tr>
+</table>
+</div>
+<div class="clearfix"></div>
+
+<div class="form-actions">
+	<%= link_to raw('<i class="icon-edit icon-white"></i> Editar'), edit_jefedefrente_path(@jefedefrente), :class => "btn btn-success" %>
+	<%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), jefedefrentes_path, :class => "btn btn-primary" %>	
+</div>
+

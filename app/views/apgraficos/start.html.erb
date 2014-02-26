@@ -1,0 +1,26 @@
+<div class="page-header">
+	<h1>Grafico Analisis de Produccion</h1>
+</div>
+
+<%=  form_tag('start', {:method => :post, :class => 'form-inline well'}) do %>
+	<%= select_tag :frente, options_from_collection_for_select(Frente.all, 'id', 'nombre', !@frente_id.nil? ? @frente_id : ''), :prompt => "Frente",  :class => 'input-medium' %>
+	<%= select_tag :type, options_for_select([['Dia',1],['Semana',2],['Mes',3],['Año',4]]), prompt: 'Tipo', class: 'span1' %>
+	<%= text_field_tag :inicio, nil, :placeholder => 'Inicio', :class => 'input-medium', :value => !@inicio.nil? ? @inicio : ''  %>
+	<%= text_field_tag :fin, nil, :placeholder => 'Fin', :class => 'input-medium', :value => !@fin.nil? ? @fin : '' %>
+	<%= submit_tag "Consultar", :class => "btn btn-primary" %>
+<% end %>
+
+<script type="text/javascript">
+  $('#inicio').datepicker({
+      format: 'yyyy-mm-dd',
+      language: 'es',
+      autoclose: true
+  });
+    $('#fin').datepicker({
+      format: 'yyyy-mm-dd',
+      language: 'es',
+      autoclose: true
+  });
+</script>
+
+<%= @difference.to_i %>

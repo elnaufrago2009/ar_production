@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+	<h2>Detalle Preciario</h2>
+</div>
+
+<div class="row">
+<table class="table table-bordered table-striped table-condensed table-hover span8">
+	<tr>
+		<th>Nombre</th>
+		<th>Descripcion</th>
+	</tr>
+	<tr>
+		<td>#id</td>
+		<td><%= @lista.id %></td>
+	</tr>
+	<tr>
+		<td>Unidad</td>
+		<td><%= @lista.unidade.nombre %></td>
+	</tr>
+	<tr>
+		<td>Precio</td>
+		<td><%= number_to_currency @lista.precio_unitario, unit: '' %></td>
+	</tr>
+	<tr>
+		<td>Nombre Partida</td>
+		<td><%= @lista.nombre %></td>
+	</tr>
+	<tr>
+		<td>Fecha de Creacion</td>
+		<td><%= l(@lista.created_at.to_date, format: :fecha) %></td>
+
+	</tr>
+	<tr>
+		<td>Fecha de Actualizacion</td>
+		<td><%= l(@lista.updated_at.to_date, format: :fecha) %></td>
+	</tr>
+</table>
+</div>
+<div class="clearfix"></div>
+<div class="form-actions">
+	<%= link_to raw('<i class="icon-edit icon-white"></i> Edit'), edit_lista_path(@lista), :class => "btn btn-success" %>
+	<%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), listas_path, :class => "btn btn-primary" %>	
+</div>
+

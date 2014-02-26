@@ -1,0 +1,27 @@
+<%= form_for(@equipoincluye, :html => {:class =>'form-horizontal'}) do |f| %>
+  <% if @equipoincluye.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipoincluye.errors.count, "error") %> prohibited this equipoincluye from being saved:</h2>
+
+      <ul>
+      <% @equipoincluye.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :nombre %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :nombre %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit :class => 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>

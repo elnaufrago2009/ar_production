@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>Valorizacion de Equipos</h1>  
+</div>
+
+<div class="row">
+  <table class="table table-striped table-bordered table-condensed table-hover span9">
+    <tr>
+      <th>#id</th>
+      <th>Nombre</th>
+      <th># valorizacion</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+
+  <% @reportedemaquinarias.each do |reportedemaquinaria| %>
+    <tr>
+      <td><%= reportedemaquinaria.id %></td>
+      <td><%= reportedemaquinaria.nombre_subcontrato %></td>
+      <td><%= reportedemaquinaria.numero_de_valoriacion %></td>
+      <td>
+        <span class="label label-info">
+          <%= reportedemaquinaria.inicio.to_date.strftime("%d %b") %> - <%= reportedemaquinaria.fin.to_date.strftime("%d %b. %Y") %>
+        </span>
+      </td>
+      <td>
+        <% if reportedemaquinaria.aprobado == 'no' %>
+          <span class="label label-warning">No Aprobado</span>
+        <% else %>
+          <span class="label label-success">Aprobado</span>
+        <% end %>        
+      </td>      
+      <td>
+        <%= link_to raw("<i class='icon-eye-open icon-white'></i>"), reportedemaquinaria, class: 'btn btn-small btn-info' %>        
+              
+          <%= link_to raw("<i class='icon-trash icon-white'></i>"), reportedemaquinaria, method: :delete, data: { confirm: 'Esta Seguro que desea Eliminar?' }, class: 'btn btn-small btn-danger' %>
+               
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+
+<div class="clearfix"></div>
+
+<%= link_to raw("<i class='icon-user icon-white'></i> Nueva Valorizacion"), "/reportedemaquinarias/valorizar_consulta", class: 'btn btn-success' %>
